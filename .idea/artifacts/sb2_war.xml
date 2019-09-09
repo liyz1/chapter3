@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sb2:war">
+    <output-path>$PROJECT_DIR$/sb2/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>sb2</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="sb2.war">
+      <element id="artifact" artifact-name="sb2:war exploded" />
+    </root>
+  </artifact>
+</component>
