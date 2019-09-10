@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     @RequestMapping("/test")
     public String test(){
-        return "q";
+        return "back/q";
     }
     @RequestMapping("/test2")
     public String test2(){

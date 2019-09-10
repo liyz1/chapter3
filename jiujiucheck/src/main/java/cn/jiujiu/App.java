@@ -14,7 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan(basePackages = "com.baizhi.mapper")
 public class App {
     public static void main(String[] args) {
-        System.out.println("jiujiu");
         SpringApplication.run(App.class,args);
     }
 }

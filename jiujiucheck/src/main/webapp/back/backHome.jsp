@@ -2,10 +2,23 @@
 <html lang="en">
 
 <head>
+
+    <script src="../js/jquery-1.8.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <%-- jqgrid相关css --%>
+    <link rel="stylesheet" href="../jqgrid/css/jquery-ui.css">
+    <link rel="stylesheet" href="../jqgrid/css/trirand/ui.jqgrid-bootstrap.css">
+    <%-- jqgrid  js --%>
+    <script src="../jqgrid/js/trirand/jquery.jqGrid.min.js"></script>
+    <script src="../jqgrid/js/trirand/i18n/grid.locale-cn.js"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--引入BootStrap的全局样式-->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
@@ -84,7 +97,10 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-                            <a href="../backHome.jsp" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>订单管理</a>
+
+                            <a href="javascript:$('#carousel-example-generic').load('q.jsp')"><i
+                                    class="fa fa-clock-o m-r-10" aria-hidden="true"></i>订单管理</a>
+
                         </li>
                         <li>
                             <a href="../pages-profile.html" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>用户管理</a>
