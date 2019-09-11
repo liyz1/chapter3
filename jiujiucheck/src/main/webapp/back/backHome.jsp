@@ -97,22 +97,70 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-
-                            <a href="javascript:$('#carousel-example-generic').load('q.jsp')"><i
+                            <a href="javascript:$('#carousel-example-generic').load('back/q.jsp')" class="waves-effect"><i
                                     class="fa fa-clock-o m-r-10" aria-hidden="true"></i>订单管理</a>
-
                         </li>
                         <li>
-                            <a href="../pages-profile.html" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>用户管理</a>
+                            <a href="/back/table-basic.html" class="waves-effect"><i class="fa fa-clock-o m-r-10"
+                                                                                     aria-hidden="true"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="../table-basic.html" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>业务员管理</a>
+                            <a href="../back/pages-profile.html" class="waves-effect"><i class="fa fa-user m-r-10"
+                                                                                         aria-hidden="true"></i>用户管理</a>
+                        </li>
+                        <li>
+                            <a href="../back/table-basic.html" class="waves-effect"><i class="fa fa-table m-r-10"
+                                                                                       aria-hidden="true"></i>业务员管理</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </aside>
     </div>
+
+    <!--右侧新增轮播图2019.09.11 -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <!--        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="${pageContext.request.contextPath}/img/shouye.jpg" width="1366" height="450" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="${pageContext.request.contextPath}/img/shouye.jpg" width="1366" height="450" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="${pageContext.request.contextPath}/img/shouye.jpg" width="1366" height="450" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Controls -->
+        <!--        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>-->
+
+    </div>
+
 
     <!-- All Jquery -->
     <script src="../assets/plugins/jquery/jquery.min.js"></script>

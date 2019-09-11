@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 //指定dao位置从而创建dao的动态代理类
-@MapperScan(basePackages = "com.baizhi.mapper")
+@MapperScan(basePackages = "cn.jiujiu.DAO")
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class,args);

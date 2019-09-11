@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class Admin implements Serializable {
 
     private Integer id;         //管理员id
-    private String userame;     //管理员账户
+    private String username;     //管理员账户
     private String password;    //管理员密码
     private String status;      //管理员状态
 }

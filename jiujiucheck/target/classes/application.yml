@@ -19,5 +19,5 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
 #mybatis相关配置  别名  mapper位置
 mybatis:
-  type-aliases-package: com.baizhi.entity
+  type-aliases-package: cn.jiujiu.entity
   mapper-locations: classpath:cn/jiujiu/mapper/*Mapper.xml

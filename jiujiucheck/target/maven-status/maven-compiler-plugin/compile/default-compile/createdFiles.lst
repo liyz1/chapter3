@@ -1,5 +1,8 @@
 cn\jiujiu\controller\UserController.class
 cn\jiujiu\entity\Admin.class
 cn\jiujiu\entity\User.class
+cn\jiujiu\DAO\UserDAO.class
+cn\jiujiu\service\UserServiceImpl.class
 cn\jiujiu\App.class
 cn\jiujiu\entity\Product.class
+cn\jiujiu\service\UserService.class

@@ -1,5 +1,8 @@
 D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\entity\User.java
+D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\service\UserServiceImpl.java
 D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\entity\Admin.java
 D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\App.java
+D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\DAO\UserDAO.java
 D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\entity\Product.java
+D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\service\UserService.java
 D:\chapter3\jiujiucheck\src\main\java\cn\jiujiu\controller\UserController.java

@@ -14,7 +14,9 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
     private Integer id;         //用户编号
-    private String userName;    //用户姓名
+    private String company;     //用户公司
+    private String username;    //用户名
+    private String salt;        //盐值
     private String password;    //用户密码
     private String nickName;    //用户昵称
     private String address;     //用户地址
