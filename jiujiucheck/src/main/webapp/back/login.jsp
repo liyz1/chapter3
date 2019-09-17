@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap Login Form Template</title>
+    <!-- jquery -->
+    <script src="../boot/js/jquery-2.2.1.min.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../font/css/font-awesome.css">
     <link rel="stylesheet" href="../assets/css/form-elements.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
@@ -17,13 +19,14 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <script src="../boot/js/jquery-2.2.1.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../css/bootstrap.min.css"></script>
     <script src="../assets/js/jquery.backstretch.min.js"></script>
-    <script src="../boot/js/jquery.validate.min.js"></script>
+
+    <!--表单验证的js插件-->
     <script src="../boot/js/jquery.validate.min.js"></script>
 
-    //背景图片的脚本
+    <!--背景图片的脚本-->
     <script>
 
         jQuery(document).ready(function () {
@@ -58,9 +61,10 @@
 
         $(function () {
 
-            /*验证码生成*/
+            /*验证码点击刷新*/
             $("#captchaImage").click(function () {
-                $("#captchaImage").prop("src", "${pageContext.request.contextPath}/checkCode/getCheckCode?time=" + new Date().getTime())
+                //请求后拼接时间，表明是不同的请求，拼接验证码
+                $("#captchaImage").prop("src", "${pageContext.request.contextPath}/verificationCode/getVerificationCode?time=" + new Date().getTime())
             })
 
             /*中文重写提示*/
@@ -68,16 +72,23 @@
                 required: "<span style='color: red'>此字段不能为空</span>",
             })
 
+            /*表单验证的js*/
             $("#loginButtonId").click(function () {
-                $.ajax({
-                    url: "${pageContext.request.contextPath}/admin/login",
-                    data: $("#loginForm").serialize(),
-                    type: "post",
-                    datatype: "json",
-                    success: function () {
-                        location.href = "${pageContext.request.contextPath}/login/main.jsp"
-                    }
-                })
+
+                //验证表单输入的值是否为空。如果不为空，则发送Ajax请求
+                var status = $("#loginForm").valid();
+                if(status){
+                    $.ajax({
+                        url: "${pageContext.request.contextPath}/admin/adminLogin",
+                        data: $("#loginForm").serialize(),
+                        type: "post",
+                        datatype: "json",
+                        success: function () {
+                            alert("登陆成功")
+                            location.href = "${pageContext.request.contextPath}/back/backHome.jsp"
+                        }
+                    })
+                }
 
             })
         })
@@ -129,10 +140,10 @@
                             </div>
                             <div class="form-group">
                                 <img id="captchaImage" style="height: 48px" class="captchaImage"
-                                     src="${pageContext.request.contextPath}/checkCode/getCheckCode">
+                                     src="${pageContext.request.contextPath}/verificationCode/getVerificationCode">
                                 <input required
                                        style="width: 289px;height: 50px;border:3px solid #ddd;border-radius: 4px;"
-                                       type="test" name="enCode" id="form-code">
+                                       type="test" name="verificationCode" id="form-code">
                             </div>
                             <input type="button" style="width: 400px;border:1px solid #9d9d9d;border-radius: 4px;"
                                    id="loginButtonId" value="登录">

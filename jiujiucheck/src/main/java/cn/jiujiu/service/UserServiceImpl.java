@@ -15,6 +15,7 @@ import java.util.List;
  * @作者 liyz
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
