@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @描述  管理员控制器
+ * @描述 管理员控制器
  * @日期 2019/9/17
  * @作者 liyz
  */
@@ -35,7 +35,6 @@ public class AdminController {
 
         //拿到后台生成的验证码
         String backVerificationCode =(String) session.getAttribute("verificationCode");
-
         //比对验证码
         if(backVerificationCode.equals(userVerificationCode)){
             //比对账号

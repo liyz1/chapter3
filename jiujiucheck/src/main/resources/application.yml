@@ -12,8 +12,8 @@ spring:
       prefix: /
       suffix: .jsp
   datasource:
-    url: url=jdbc:mysql://localhost:3306/jiujiucheck?useSSL=FALSE
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jiujiucheck?useSSL=FALSE
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource

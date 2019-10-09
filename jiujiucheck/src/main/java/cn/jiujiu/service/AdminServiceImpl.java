@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @描述
+ * @描述 管理员操作的service
  * @日期 2019/9/17
  * @作者 liyz
  */
@@ -42,7 +42,7 @@ public class AdminServiceImpl implements AdminService{
         if(count==1){
             Admin admin = adminDAO.selectAdminByUsernameAndPassword(username, password);
             if(admin!=null){
-                map.put("msg","登录成功");
+                map.put("msg","ok");
             }else{
                 map.put("msg","密码错误");
             }

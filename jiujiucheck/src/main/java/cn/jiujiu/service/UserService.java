@@ -3,6 +3,7 @@ package cn.jiujiu.service;
 import cn.jiujiu.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 /*
  *
@@ -13,4 +14,8 @@ import java.util.List;
 public interface UserService {
     //查询所有
     public List<User> selectAllUserFromUser();
+    //分页查询
+    public Map<String,Object> queryByPaging(Integer page,Integer rows);
+    //注册新用户
+    public void insertUser(User user);
 }

@@ -83,9 +83,12 @@
                         data: $("#loginForm").serialize(),
                         type: "post",
                         datatype: "json",
-                        success: function () {
-                            alert("登陆成功")
-                            location.href = "${pageContext.request.contextPath}/back/backHome.jsp"
+                        success: function (data) {
+                            if(data.msg=="ok"){
+                                location.href = "${pageContext.request.contextPath}/back/backHome.jsp"
+                            }else{
+                                $("#msgDiv").html(data.msg)
+                            }
                         }
                     })
                 }
@@ -105,7 +108,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>CMFZ</strong> Login Form</h1>
+                    <h1><strong>帅帅气气</strong> Login Form</h1>
                     <div class="description">
                         <p>
                             <a href="#"><strong>CMFZ</strong></a>
@@ -126,7 +129,7 @@
                     </div>
                     <div class="form-bottom" style="width: 450px">
                         <form role="form" action="" method="post" class="login-form" id="loginForm">
-                            <span id="msgDiv"></span>
+                            <span id="msgDiv" style="color: red"></span>
                             <div class="form-group">
                                 <span id="av"></span>
                                 <label class="sr-only" for="form-username">Username</label>
@@ -143,7 +146,7 @@
                                      src="${pageContext.request.contextPath}/verificationCode/getVerificationCode">
                                 <input required
                                        style="width: 289px;height: 50px;border:3px solid #ddd;border-radius: 4px;"
-                                       type="test" name="verificationCode" id="form-code">
+                                       type="test" name="userVerificationCode" id="form-code">
                             </div>
                             <input type="button" style="width: 400px;border:1px solid #9d9d9d;border-radius: 4px;"
                                    id="loginButtonId" value="登录">

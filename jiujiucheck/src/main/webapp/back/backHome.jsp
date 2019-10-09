@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>帅帅气气</title>
+    <title>久久</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../boot/css/bootstrap.css">
     <%-- jqgrid相关css --%>
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <h1>持名法洲管理系统</h1>
+            <h1>久久</h1>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -64,32 +64,19 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" >
-                            上师管理
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        查看上师
-                    </div>
-                </div>
-            </div>
+
             <div class="panel panel-default">
 
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapsethree" >
-                            文章管理
+                            订单管理
                         </a>
                     </h4>
                 </div>
                 <div id="collapsethree" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <li><a href="javascript:$('#carousel-example-generic').load('article.jsp')">查看文章</a></li>
+                        <li><a href="javascript:$('#carousel-example-generic').load('article.jsp')">查看订单</a></li>
                     </div>
                 </div>
             </div>
@@ -97,13 +84,13 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapsefour" >
-                            专辑管理
+                            业务员管理
                         </a>
                     </h4>
                 </div>
                 <div id="collapsefour" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <li><a href="javascript:$('#carousel-example-generic').load('album.jsp')">查看专辑</a></li>
+                        <li><a href="javascript:$('#carousel-example-generic').load('album.jsp')">查看业务员</a></li>
                     </div>
                 </div>
             </div>
@@ -134,7 +121,7 @@
                 </div>
                 <div id="collapseserven" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <li><a href="javascript:$('#carousel-example-generic').load('banner.jsp')">轮播图管理</a></li>
+                        <li><a href="javascript:$('#carousel-example-generic').load('banner.jsp')">管理员管理</a></li>
                     </div>
                 </div>
             </div>
@@ -146,7 +133,7 @@
     </div>
     <div class="col-md-10">
         <div class="jumbotron">
-            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎来到持名法洲后台管理系统</h3>
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎来到久久后台管理系统</h4>
         </div>
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -195,7 +182,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div>
-        <h6 class="text-center">@持明法洲</h6>
+        <h6 class="text-center">@久久包装</h6>
     </div>
 </nav>
 </body>
