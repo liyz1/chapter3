@@ -67,9 +67,28 @@ public class UserServiceImpl implements UserService {
         return map;
     }
 
+    /**
+     * 功能描述 添加用户信息
+     * @author  liyz
+     * @date    2019/09/11
+     * @param   [user]
+     * @return  void
+     */
     @Override
     @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
     public void insertUser(User user) {
         userDAO.insertUser(user);
+    }
+
+    /**
+     * 功能描述 根据id修改用户信息
+     * @author  liyz
+     * @date    2019/10/28
+     * @param   [user]
+     * @return  void
+     */
+    @Override
+    public void updateUser(User user) {
+        userDAO.updateUser(user);
     }
 }

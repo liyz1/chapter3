@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @描述
@@ -69,7 +67,14 @@ public class UserController {
             user.setId(uuid);
             String salt = UUID.randomUUID().toString();
             user.setSalt(salt);
+            SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date();
+            String registerDate = simpleDateFormat.format(date);
+            user.setRegisterTime(registerDate);
             userService.insertUser(user);
+        }
+        if("edit".equals(oper)){
+            userService.updateUser(user);
         }
         return null;
     }

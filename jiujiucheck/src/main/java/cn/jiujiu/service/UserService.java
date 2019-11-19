@@ -18,4 +18,6 @@ public interface UserService {
     public Map<String,Object> queryByPaging(Integer page,Integer rows);
     //注册新用户
     public void insertUser(User user);
+    //根据id修改用户信息
+    public void updateUser(User user);
 }

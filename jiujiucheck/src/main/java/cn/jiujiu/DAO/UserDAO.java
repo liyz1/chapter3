@@ -20,4 +20,6 @@ public interface UserDAO {
     public Integer selectRecords();
     //添加一个新用户
     public void insertUser(User user);
+    //根据uuid修改用户
+    public void updateUser(User user);
 }

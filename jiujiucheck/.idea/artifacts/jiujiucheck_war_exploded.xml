@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="jiujiucheck:war exploded">
-    <output-path>$PROJECT_DIR$/jiujiucheck/target/jiujiucheck</output-path>
+    <output-path>$PROJECT_DIR$/target/jiujiucheck</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -58,18 +58,18 @@
           <element id="library" level="project" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.3.11.RELEASE" />
-          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.3" />
+          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:1.5.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.20" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:8.5.20" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.11.RELEASE" />
-          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:1.3.3" />
+          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:1.3.2" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.6" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.2" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.11" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.0" />
-          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.17" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.16" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-jasper:8.5.20" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.20" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:8.5.20" />
@@ -78,7 +78,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/jiujiucheck/target/jiujiucheck/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/jiujiucheck/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="jiujiucheck/web/Web" />
     </root>
