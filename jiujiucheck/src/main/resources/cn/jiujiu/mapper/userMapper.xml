@@ -18,4 +18,17 @@
     <insert id="insertUser">
         insert into user values(#{id},#{company},#{username},#{salt},#{password},#{nickname},#{registerTime},#{status},#{address},#{phone})
     </insert>
+    <!--根据uuid修改用户-->
+    <update id="updateUser">
+        update user set company = #{company},
+                        username = #{username},
+                        salt = #{salt},
+                        password = #{password},
+                        nickname = #{nickname},
+                        registerTime = #{registerTime},
+                        status = #{status},
+                        address = #{address},
+                        phone = #{phone}
+                  where id = #{id}
+    </update>
 </mapper>
