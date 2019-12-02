@@ -25,7 +25,6 @@ public class UserController {
      * 功能描述 查询所有用户信息
      * @author  liyz
      * @date    2019/9/19
-     * @param   []
      * @return  java.util.List
      */
     @RequestMapping("selectAllUserFromUser")
@@ -38,12 +37,14 @@ public class UserController {
      * 功能描述 查询所有用户的分页功能
      * @author  liyz
      * @date    2019/9/19
-     * @param   [page 要查询的页码, rows 每页展示多少条数据]
+     * @param   page 要查询的页码
+     * @param   rows 每页展示多少条数据
      * @return  java.util.Map<java.lang.String,java.lang.Object>
      */
     @RequestMapping("paging")
-    public Map<String,Object> queryByPaging(Integer page, Integer rows){
-        Map<String, Object> users = userService.queryByPaging(page, rows);
+    public Map<String,Object> queryByPaging(Integer page, Integer rows,String _search,
+                              String searchField, String searchOper, String searchString){
+        Map<String, Object> users = userService.queryByPaging(page, rows,_search,searchField,searchOper,searchString);
         return users;
     }
 
@@ -51,7 +52,9 @@ public class UserController {
      * 功能描述  用户列表的增删改查
      * @author  liyz
      * @date    2019/10/8
-     * @param   [oper 前台传过来的编辑（添加/修改/删除）, user传过来的要编辑的对象, id要编辑对象的id[]]
+     * @param   oper 前台传过来的编辑（添加/修改/删除）,
+     * @param   user 传过来的要编辑的对象,
+     * @param   id 要编辑对象的id
      * @return  java.util.Map<java.lang.String,java.lang.Object>
      */
     @RequestMapping("edit")
@@ -62,20 +65,19 @@ public class UserController {
 
         //如果是添加操作
         if("add".equals(oper)){
-            //为新添加的对象分配uuid并组装
-            String uuid = UUID.randomUUID().toString();
-            user.setId(uuid);
-            String salt = UUID.randomUUID().toString();
-            user.setSalt(salt);
-            SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd");
-            Date date = new Date();
-            String registerDate = simpleDateFormat.format(date);
-            user.setRegisterTime(registerDate);
             userService.insertUser(user);
+            map.put("msg","用户添加成功");
         }
         if("edit".equals(oper)){
             userService.updateUser(user);
+            map.put("msg","用户修改成功");
         }
-        return null;
+        if("del".equals(oper)){
+            for (int i = 0 ; i < id.length ; i++){
+                userService.deleteUserById(id[i]);
+            }
+            map.put("msg","用户删除成功");
+        }
+        return map;
     }
 }

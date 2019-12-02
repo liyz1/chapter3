@@ -3,6 +3,7 @@ package cn.jiujiu.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -14,6 +15,7 @@ import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Data
 public class User implements Serializable {
     private String id;          //用户编号

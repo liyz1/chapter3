@@ -12,20 +12,20 @@
             colNames:["id","公司名称","用户名","密码","客户名称","注册时间","状态","发货地址","联系电话"],
             //列的模型,和数据库字段严格对应
             colModel:[
-                {name:"id"},
+                {name:"id",search:false},
                 {name:"company",editable: true},
-                {name:"username",editable: true},
-                {name:"password",editable: true},
+                {name:"username",editable: true,search:false},
+                {name:"password",editable: true,search:false},
                 {name:"nickname",editable: true},
-                {name:"registerTime",editable: false},
-                {name:"status",editable: true,edittype:'select',editoptions: {value:{1:'激活',2:'冻结'}}},
-                {name:"address",editable: true},
-                {name:"phone",editable: true}
+                {name:"registerTime",editable: false,search:false},
+                {name:"status",editable: true,search:false,edittype:'select',editoptions: {value:{1:'激活',2:'冻结'}}},
+                {name:"address",editable: true,search:false},
+                {name:"phone",editable: true,search:false}
             ],
             styleUI:"Bootstrap",    //采用Bootstrap风格
             pager:"#userPager",     //分页。需要给一个div
-            rowNum:10,               //每页展示多少条
-            rowList:[10,20,30],       //下拉框。自己选择每页展示多少条
+            rowNum:10,              //每页展示多少条
+            rowList:[10,20,30],     //下拉框。自己选择每页展示多少条
             autowidth:true,         //自适应宽度
             viewrecords:true,       //显示总记录条数
             height:'60%',           //高度
@@ -46,7 +46,7 @@
             },
             {
                 //删除
-            },
+            }
         );
     })
     function showModal() {
@@ -59,18 +59,6 @@
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">用户列表</a></li>
         <li><a href="javascript:void(0)" onclick="showModal()"><b>生成报表</b></a></li>
-        <!--搜索框-->
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="exampleInputName2">公司名称</label>
-                <input type="text" class="form-control" id="exampleInputName2">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail2">客户名称</label>
-                <input type="email" class="form-control" id="exampleInputEmail2">
-            </div>
-            <button type="submit" class="btn btn-default">查询</button>
-        </form>
     </ul>
 </div>
 <table id="userList"></table>

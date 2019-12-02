@@ -31,4 +31,16 @@
                         phone = #{phone}
                   where id = #{id}
     </update>
+    <!--根据id删除一个用户-->
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+    <!--根据公司名称模糊查询-->
+    <select id="likeUserByCompany" resultType="User" parameterType="java.lang.String">
+        select * from user where company like concat(concat('%',#{company}),'%')
+    </select>
+    <!--根据客户名称模糊查询-->
+    <select id="likeUserByNickname" resultType="User" parameterType="String">
+        select * from user where nickname like concat(concat('%',#{nickname}),'%')
+    </select>
 </mapper>

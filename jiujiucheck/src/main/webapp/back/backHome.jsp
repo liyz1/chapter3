@@ -80,36 +80,6 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapsefour" >
-                            业务员管理
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapsefour" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <li><a href="javascript:$('#carousel-example-generic').load('album.jsp')">查看业务员</a></li>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapsesix" >
-                            轮播图
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapsesix" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <li><a href="javascript:$('#carousel-example-generic').load('banner.jsp')">轮播图管理</a></li>
-                    </div>
-                </div>
-            </div>
-
-
 
             <div class="panel panel-default">
                 <div class="panel-heading">
