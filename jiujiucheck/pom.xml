@@ -82,11 +82,38 @@
   <build>
     <finalName>jiujiucheck</finalName>
     <plugins>
-      <!--整合jsp以插件形式启动-->
       <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>1.4.2.RELEASE</version><!--$NO-MVN-MAN-VER$-->
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <useDefaultDelimiters>true</useDefaultDelimiters>
+        </configuration>
       </plugin>
     </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/webapp/</directory>
+        <!--注意此次必须要放在此目录下才能被访问到 -->
+        <targetPath>META-INF/resources</targetPath>
+      </resource>
+
+
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
   </build>
 </project>
