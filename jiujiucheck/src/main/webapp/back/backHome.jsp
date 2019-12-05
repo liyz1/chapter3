@@ -76,7 +76,7 @@
                 </div>
                 <div id="collapsethree" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <li><a href="javascript:$('#carousel-example-generic').load('article.jsp')">查看订单</a></li>
+                        <li><a href="javascript:$('#carousel-example-generic').load('order.jsp')">查看订单</a></li>
                     </div>
                 </div>
             </div>

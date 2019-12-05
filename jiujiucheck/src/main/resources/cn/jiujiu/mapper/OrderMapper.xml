@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jiujiu.DAO.OrderDAO">
+
+    <!--分页查询-->
+    <select id="selectByPaging" resultType="Order" parameterType="java.lang.Integer">
+        select * from orders limit #{start},#{rows}
+    </select>
+    <!--查询总记录数-->
+    <select id="selectRecords" resultType="java.lang.Integer">
+        select count(1) from orders
+    </select>
+    <!--添加一个新订单-->
+    <insert id="insertOrder">
+        insert into orders(id,orderName,paperType,amount,createDate,price,prepareBeginDate,
+                           prepareCompleteDate,status,packageMode,salesman,userId,remake)
+                    values(#{id},#{orderName},#{paperType},#{amount},#{createDate},
+                           #{price},#{prepareBeginDate},#{prepareCompleteDate},#{status},
+                           #{packageMode},#{salesman},#{userId},#{remake})
+    </insert>
+    <!--根据uuid修改订单-->
+    <update id="updateOrder">
+        update orders set orderName = #{orderName},
+                         paperType = #{paperType},
+                         amount = #{amount},
+                         price = #{price},
+                         remake = #{remake},
+                         userId = #{userId},
+                         status = #{status},
+                         packageMode = #{packageMode},
+                         prepareBeginDate=#{prepareBeginDate},
+                         prepareCompleteDate=#{prepareCompleteDate},
+                         salesman = #{salesman}
+                  where id = #{id}
+    </update>
+    <!--根据id删除一个订单-->
+    <delete id="deleteOrderById">
+        delete from orders where id = #{id}
+    </delete>
+    <!--根据订单名称模糊查询-->
+    <select id="likeOrderByOrderName" resultType="Order" parameterType="java.lang.String">
+        select * from orders where orderName like concat(concat('%',#{orderName}),'%')
+    </select>
+</mapper>
