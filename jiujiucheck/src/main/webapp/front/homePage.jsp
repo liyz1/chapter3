@@ -344,7 +344,7 @@
 
 <!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]--> 
 <script src="../js/modernizr-latest.js"></script>
-<script src="../boot/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+<script src="../back/assets/js/jquery-2.2.1.min.js" type="text/javascript"></script>
 <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../js/jquery.isotope.min.js" type="text/javascript"></script>
 <script src="../js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>

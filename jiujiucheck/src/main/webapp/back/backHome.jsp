@@ -12,7 +12,7 @@
     <%-- jqgrid相关css --%>
     <link rel="stylesheet" href="../jqgrid/css/jquery-ui.css">
     <link rel="stylesheet" href="../jqgrid/css/trirand/ui.jqgrid-bootstrap.css">
-    <script src="../boot/js/jquery-2.2.1.min.js"></script>
+    <script src="../back/assets/js/jquery-2.2.1.min.js"></script>
     <script src="../boot/js/bootstrap.js"></script>
     <%-- jqgrid  js --%>
     <script src="../jqgrid/js/trirand/jquery.jqGrid.min.js"></script>
@@ -21,6 +21,8 @@
     <%-- ajax文件上传--%>
     <script src="../boot/js/ajaxfileupload.js"></script>
 
+    <%-- 日期控件--%>
+    <script src="../js/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">

@@ -9,23 +9,39 @@
             //数据类型
             datatype:"json",
             //列的标题，也就是表格的字段名
-            colNames:["id","产品名称","纸张类型","产品数量","订单创建时间","单价","预计开工时间",
+            colNames:["id","产品名称","纸张类型","产品数量","订单创建时间","单价(元)","预计开工时间",
                 "预计完工时间","订单状态","打包方式","业务员","所属用户id","备注"],
             //列的模型,和数据库字段严格对应
             colModel:[
-                {name:"id",search:false},
-                {name:"orderName",editable: true},
-                {name:"paperType",editable: true,search:false},
-                {name:"amount",editable: true,search:false},
-                {name:"createDate",search:false},
-                {name:"price",search:false,editable: true},
-                {name:"prepareBeginDate",editable: true,search:false},
-                {name:"prepareCompleteDate",editable: true,search:false},
-                {name:"status",editable: true,search:false},
-                {name:"packageMode",editable: true,search:false,edittype:'select',editoptions: {value:{1:'装箱',2:'装袋'}}},
-                {name:"salesman",editable: true,search:false},
-                {name:"userId",editable: true,search:false},
-                {name:"remake",editable: true,search:false}
+                {name:"id",search:false,align:"center"},
+                {name:"orderName",editable: true,align:"center"},
+                {name:"paperType",editable: true,search:false,width:140,align:"center"},
+                {name:"amount",editable: true,search:false,width:100,align:"center"},
+                {name:"createDate",search:false,width:200,align:"center"},
+                {name:"price",search:false,editable: true,width:100,align:"center"},
+                {name:'prepareBeginDate',search:false,width:200,editable:true,edittype:'text',editrules:{required:true},
+                    editoptions: {
+                        dataInit:function(e){$(e).click(function () {
+                            WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+                        })
+                        }
+                    },align:"center"
+                },
+
+                {name:'prepareCompleteDate',search:false,width:200,editable:true,edittype:'text',editrules:{required:true},
+                    editoptions: {
+                        dataInit:function(e){$(e).click(function () {
+                            WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+                        })
+                        }
+                    },align:"center"
+                },
+
+                {name:"status",editable: true,search:false,align:"center"},
+                {name:"packageMode",editable: true,search:false,edittype:'select',editoptions: {value:{1:'装箱',2:'装袋'}},align:"center"},
+                {name:"salesman",editable: true,search:false,align:"center"},
+                {name:"userId",editable: true,search:false,align:"center"},
+                {name:"remake",editable: true,search:false,fixed: true,align:"center"}
             ],
             styleUI:"Bootstrap",    //采用Bootstrap风格
             pager:"#userPager",     //分页。需要给一个div
