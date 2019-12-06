@@ -86,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
         String uuid = UUID.randomUUID().toString();
         order.setId(uuid);
 
-        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
         String createDate = simpleDateFormat.format(date);
         order.setCreateDate(createDate);
