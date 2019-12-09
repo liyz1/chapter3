@@ -15,7 +15,6 @@ import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Data
 public class User implements Serializable {
     private String id;          //用户编号
@@ -28,4 +27,5 @@ public class User implements Serializable {
     private String status;      //用户状态      1-激活    2-冻结
     private String address;     //用户地址
     private String phone;       //手机号码
+    private String remark;      //备注
 }

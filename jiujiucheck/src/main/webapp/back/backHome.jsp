@@ -84,19 +84,22 @@
             </div>
 
             <div class="panel panel-default">
+
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapsesix" >
-                            管理员管理
+                        <a class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapsefour" >
+                            员工管理
                         </a>
                     </h4>
                 </div>
-                <div id="collapseserven" class="panel-collapse collapse">
+                <div id="collapsefour" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <li><a href="javascript:$('#carousel-example-generic').load('banner.jsp')">管理员管理</a></li>
+                        <li><a href="javascript:$('#carousel-example-generic').load('staff.jsp')">员工列表</a></li>
                     </div>
                 </div>
             </div>
+
+
 
 
 

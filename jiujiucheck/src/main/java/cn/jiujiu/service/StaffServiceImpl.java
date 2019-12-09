@@ -1,26 +1,25 @@
 package cn.jiujiu.service;
 
-import cn.jiujiu.DAO.OrderDAO;
-import cn.jiujiu.entity.Order;
+import cn.jiujiu.DAO.StaffDAO;
+import cn.jiujiu.entity.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * @描述 OrderService的实现类
- * @日期 2019/12/05
+ * @描述 StaffService的实现类
+ * @日期 2019/12/09
  * @作者 liyz
  */
 @Service
 @Transactional
-public class OrderServiceImpl implements OrderService {
+public class StaffServiceImpl implements StaffService {
 
     @Autowired
-    private OrderDAO orderDAO;
+    private StaffDAO staffDAO;
 
     /**
      * 功能描述 分页展示所有用户信息的service
@@ -35,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
      * @param   searchField 模糊查询属性名称
      * @param   searchOper 是否为模糊查询
      * @param   searchString 模糊查询字符串
-     * @return  java.util.List<cn.jiujiu.entity.Order>符合查询结果的集合
+     * @return  java.util.List<cn.jiujiu.entity.Staff>符合查询结果的集合
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
@@ -44,20 +43,20 @@ public class OrderServiceImpl implements OrderService {
         //计算起始下标
         Integer start = (page-1)*rows;
         //拿到符合条件的结果集
-        List<Order> orders = null;
+        List<Staff> list = null;
         if("true".equals(_search)){
             //当搜索框传过来的值为true时进行条件查询
-            if("orderName".equals(searchField)){
-                //订单名称包含所写字段
-                orders = orderDAO.likeOrderByOrderName(searchString);
+            if("name".equals(searchField)){
+                //员工名称包含所写字段
+                list = staffDAO.likeStaffByStaffName(searchString);
             }
         }else{
             //当搜索框传过来的值不为true时进行查询所有
-            orders = orderDAO.selectByPaging(start, rows);
+            list = staffDAO.selectByPaging(start, rows);
         }
 
         //拿到总记录数
-        Integer records = orderDAO.selectRecords();
+        Integer records = staffDAO.selectRecords();
         //拿到总页数
         Integer total = records % rows == 0 ? records / rows : records / rows + 1;
 
@@ -66,53 +65,51 @@ public class OrderServiceImpl implements OrderService {
         map.put("page",page);
         map.put("records",records);
         map.put("total",total);
-        map.put("rows",orders);
+        map.put("rows",list);
         return map;
     }
 
     /**
-     * 功能描述 添加订单信息
+     * 功能描述 添加员工信息
      * @author  liyz
-     * @date    2019/12/05
-     * @param   order
+     * @date    2019/12/09
+     * @param   staff
      * @return  void
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
-    public void insertOrder(Order order) {
+    public void insertStaff(Staff staff) {
 
         //为新添加的对象分配uuid并组装
         String uuid = UUID.randomUUID().toString();
-        order.setId(uuid);
-
-        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date();
-        String createDate = simpleDateFormat.format(date);
-        order.setCreateDate(createDate);
-        orderDAO.insertOrder(order);
+        staff.setId(uuid);
+        String salt = UUID.randomUUID().toString();
+        staff.setSalt(salt);
+        staffDAO.insertStaff(staff);
     }
 
     /**
-     * 功能描述 根据id修改订单信息
+     * 功能描述 根据id修改员工信息
      * @author  liyz
-     * @date    2019/12/05
-     * @param   order
+     * @date    2019/12/09
+     * @param   Staff
      * @return  void
      */
     @Override
-    public void updateOrder(Order order) {
-        orderDAO.updateOrder(order);
+    public void updateStaff(Staff staff) {
+        System.out.println(staff);
+        staffDAO.updateStaff(staff);
     }
 
     /**
-     * 功能描述 根据id删除订单信息
+     * 功能描述 根据id删除员工信息
      * @author  liyz
-     * @date    2019/12/05
-     * @param   id 要删除的订单的id
+     * @date    2019/12/09
+     * @param   id 要删除的员工的id
      * @return  void
      */
     @Override
-    public void deleteOrderById(String id) {
-        orderDAO.deleteOrderById(id);
+    public void deleteStaffById(String id) {
+        staffDAO.deleteStaffById(id);
     }
 }

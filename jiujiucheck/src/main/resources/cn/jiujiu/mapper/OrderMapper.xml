@@ -16,15 +16,15 @@
                            prepareCompleteDate,status,packageMode,salesman,userId,remake)
                     values(#{id},#{orderName},#{paperType},#{amount},#{createDate},
                            #{price},#{prepareBeginDate},#{prepareCompleteDate},#{status},
-                           #{packageMode},#{salesman},#{userId},#{remake})
+                           #{packageMode},#{salesman},#{userId},#{remark})
     </insert>
     <!--根据uuid修改订单-->
-    <update id="updateOrder">
+    <update id="updateOrder" parameterType="Order">
         update orders set orderName = #{orderName},
                          paperType = #{paperType},
                          amount = #{amount},
                          price = #{price},
-                         remake = #{remake},
+                         remake = #{remark},
                          userId = #{userId},
                          status = #{status},
                          packageMode = #{packageMode},
