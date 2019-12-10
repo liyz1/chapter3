@@ -14,15 +14,15 @@
     <insert id="insertStaff">
         insert into staff values(#{id},#{name},#{phone},#{username},#{password},#{salt},#{status},#{position},#{remark})
     </insert>
-    <!--根据uuid修改订单-->
+    <!--根据uuid修改员工信息-->
     <update id="updateStaff" parameterType="Staff">
-        update staff set orderName = #{name},
-                         paperType = #{phone},
-                         amount = #{username},
-                         price = #{password},
-                         remake = #{status},
-                         userId = #{position},
-                         status = #{remark}
+        update staff set name = #{name},
+                         phone = #{phone},
+                         username = #{username},
+                         password = #{password},
+                         status = #{status},
+                         position = #{position},
+                         remark = #{remark}
                   where id = #{id}
     </update>
     <!--根据id删除一个订单-->

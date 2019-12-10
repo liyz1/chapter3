@@ -37,8 +37,11 @@
                     },align:"center"
                 },
 
-                {name:"status",editable: true,search:false,align:"center"},
-                {name:"packageMode",editable: true,search:false,edittype:'select',editoptions: {value:{1:'装箱',2:'装袋'}},align:"center"},
+                {name:"status",editable: true,search:false,align:"center",edittype:'select',
+                      editoptions: {value:{1:'设计',2:'印刷',3:'覆膜',4:'烫金',5:'过油',6:'压纹',
+                      7:'模切',8:'粘盒',9:'打包',10:'发货',11:'完成'}}},
+                {name:"packageMode",editable: true,search:false,edittype:'select',
+                      editoptions: {value:{1:'装箱',2:'装袋'}},align:"center"},
                 {name:"salesman",editable: true,search:false,align:"center"},
                 {name:"userId",editable: true,search:false,align:"center"},
                 {name:"remake",editable: true,search:false,fixed: true,align:"center"}

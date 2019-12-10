@@ -16,10 +16,10 @@
                 {name:"name",editable: true,align:"center"},
                 {name:"phone",editable: true,search:false,width:140,align:"center"},
                 {name:"username",editable: true,search:false,width:100,align:"center"},
-                {name:"password",search:false,width:200,align:"center"},
+                {name:"password",editable: true,search:false,width:200,align:"center"},
                 {name:"salt",search:false,editable: false,width:100,align:"center"},
-                {name:"status",editable: true,search:false,align:"center"},
-                {name:"position",editable: true,search:false,align:"center"},
+                {name:"status",editable: true,search:false,align:"center",edittype:'select',editoptions: {value:{1:'激活',2:'冻结'}},},
+                {name:"position",editable: true,search:false,edittype:'select',editoptions: {value:{1:'业务员',2:'设计师',3:'业务助理',4:'其它'}},align:"center"},
                 {name:"remake",editable: true,search:false,fixed: true,align:"center"}
             ],
             styleUI:"Bootstrap",    //采用Bootstrap风格

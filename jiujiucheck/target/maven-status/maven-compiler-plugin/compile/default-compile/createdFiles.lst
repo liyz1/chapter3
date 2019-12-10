@@ -1,4 +1,5 @@
 cn\jiujiu\App.class
+cn\jiujiu\service\StaffServiceImpl.class
 cn\jiujiu\util\ValidateImageCodeUtils.class
 cn\jiujiu\DAO\AdminDAO.class
 cn\jiujiu\service\AdminService.class
@@ -9,11 +10,15 @@ cn\jiujiu\controller\UserController.class
 cn\jiujiu\DAO\UserDAO.class
 cn\jiujiu\service\UserService.class
 cn\jiujiu\entity\Order.class
+cn\jiujiu\service\StaffService.class
 cn\jiujiu\DAO\OrderDAO.class
 cn\jiujiu\service\OrderService.class
+cn\jiujiu\entity\Staff.class
 cn\jiujiu\util\ValidateImageCodeUtils$SecurityCodeLevel.class
+cn\jiujiu\controller\StaffController.class
 cn\jiujiu\service\AdminServiceImpl.class
 cn\jiujiu\entity\User.class
+cn\jiujiu\DAO\StaffDAO.class
 cn\jiujiu\service\UserServiceImpl.class
 cn\jiujiu\controller\OrderController.class
 cn\jiujiu\entity\Admin.class
