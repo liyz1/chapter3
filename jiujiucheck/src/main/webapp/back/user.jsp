@@ -12,16 +12,21 @@
             colNames:["id","公司名称","用户名","密码","客户名称","注册时间","状态","发货地址","联系电话","备注"],
             //列的模型,和数据库字段严格对应
             colModel:[
-                {name:"id",search:false},
-                {name:"company",editable: true},
-                {name:"username",editable: true,search:false},
-                {name:"password",editable: true,search:false},
-                {name:"nickname",editable: true},
-                {name:"registerTime",editable: false,search:false},
-                {name:"status",editable: true,search:false,edittype:'select',editoptions: {value:{1:'激活',2:'冻结'}}},
-                {name:"address",editable: true,search:false},
-                {name:"phone",editable: true,search:false},
-                {name:"remark",editable: true,search:false}
+                {name:"id",search:false,align:"center",hidden:true},
+                {name:"company",align:"center",editable: true},
+                {name:"username",align:"center",editable: true,search:false},
+                {name:"password",align:"center",editable: true,search:false,hidden:true},
+                {name:"nickname",align:"center",editable: true},
+                {name:"registerTime",align:"center",editable: false,search:false},
+                {name:"status",align:"center",editable: true,search:false,edittype:'select',
+                    formatter:function(value,options,rowData){
+                        if(value == '1'){return '激活';}
+                        if(value == '2'){return '冻结';}
+                    },
+                    editoptions: {value:{1:'激活',2:'冻结'}}},
+                {name:"address",editable: true,align:"center",search:false},
+                {name:"phone",align:"center",editable: true,search:false},
+                {name:"remark",editable: true,align:"center",search:false}
             ],
             styleUI:"Bootstrap",    //采用Bootstrap风格
             pager:"#userPager",     //分页。需要给一个div

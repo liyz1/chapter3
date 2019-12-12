@@ -17,9 +17,9 @@
                 {name:"orderName",editable: true,align:"center"},
                 {name:"paperType",editable: true,search:false,width:140,align:"center"},
                 {name:"amount",editable: true,search:false,width:100,align:"center"},
-                {name:"createDate",search:false,width:200,align:"center"},
+                {name:"createDate",search:false,width:250,align:"center"},
                 {name:"price",search:false,editable: true,width:100,align:"center"},
-                {name:'prepareBeginDate',search:false,width:200,editable:true,edittype:'text',editrules:{required:true},
+                {name:'prepareBeginDate',search:false,width:250,editable:true,edittype:'text',editrules:{required:true},
                     editoptions: {
                         dataInit:function(e){$(e).click(function () {
                             WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
@@ -28,7 +28,7 @@
                     },align:"center"
                 },
 
-                {name:'prepareCompleteDate',search:false,width:200,editable:true,edittype:'text',editrules:{required:true},
+                {name:'prepareCompleteDate',search:false,width:250,editable:true,edittype:'text',editrules:{required:true},
                     editoptions: {
                         dataInit:function(e){$(e).click(function () {
                             WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
@@ -37,7 +37,7 @@
                     },align:"center"
                 },
 
-                {name:"status",editable: true,search:false,align:"center",edittype:'select',
+                {name:"status",editable: true,search:false,width:140,align:"center",edittype:'select',
                     formatter:function(value,options,rowData){
                         if(value == '1'){return '设计';}
                         if(value == '2'){return '印刷';}
@@ -54,17 +54,17 @@
                       editoptions: {value:{1:'设计',2:'印刷',3:'覆膜',4:'烫金',5:'过油',6:'压纹',
                       7:'模切',8:'粘盒',9:'打包',10:'发货',11:'完成'}}
                 },
-                {name:"packageMode",editable: true,search:false,edittype:'select',
+                {name:"packageMode",editable: true,search:false,width:140,edittype:'select',
                       formatter:function(value,options,rowData){
                         if(value == '1'){return '装箱';}
                         if(value == '2'){return '装袋';}
                       },
                       editoptions: {value:{1:'装箱',2:'装袋'}},align:"center"
                 },
-                {name:"salesman",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllSalesmanFromStaff"}},
-                {name:"designer",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllDesignerFromStaff"}},
-                {name:"businessAssistant",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllBusinessAssistantFromStaff"}},
-                {name:"company",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/userController/selectCompanyFromUser"}},
+                {name:"salesman",editable: true,align:"center",search:false,width:140,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllSalesmanFromStaff"}},
+                {name:"designer",editable: true,align:"center",search:false,width:140,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllDesignerFromStaff"}},
+                {name:"businessAssistant",editable: true,align:"center",search:false,width:140,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllBusinessAssistantFromStaff"}},
+                {name:"company",editable: true,align:"center",search:false,width:250,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/userController/selectCompanyFromUser"}},
                 {name:"remake",editable: true,search:false,fixed: true,align:"center"}
             ],
             styleUI:"Bootstrap",    //采用Bootstrap风格
