@@ -21,18 +21,6 @@ public class UserController {
     private UserService userService;
 
     /**
-     * 功能描述 查询所有用户信息
-     * @author  liyz
-     * @date    2019/9/19
-     * @return  java.util.List
-     */
-    @RequestMapping("selectAllUserFromUser")
-    public List selectAllUserFromUser() {
-        List<User> list = userService.selectAllUserFromUser();
-        return list;
-    }
-
-    /**
      * 功能描述 查询所有用户的分页功能
      * @author  liyz
      * @date    2019/9/19
@@ -78,5 +66,23 @@ public class UserController {
             map.put("msg","用户删除成功");
         }
         return map;
+    }
+
+    /**
+     * 功能描述 查询所有客户的公司名称拼接成html在前端页面展示
+     * @author  liyz
+     * @date    2019/9/19
+     * @return  String
+     */
+    @RequestMapping("selectCompanyFromUser")
+    public String selectCompanyFromUser() {
+        List<String> list = userService.selectAllCompanyFromUser();
+        StringBuilder builder = new StringBuilder();
+        builder.append("<select>");
+        for (int i = 0; i < list.size(); i++) {
+            builder.append("<option value='" + list.get(i) + "'>" + list.get(i) + "</option>");
+        }
+        builder.append("</select>");
+        return builder.toString();
     }
 }

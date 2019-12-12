@@ -1,5 +1,6 @@
 package cn.jiujiu.controller;
 
+import cn.jiujiu.DTO.OrderDto;
 import cn.jiujiu.entity.Order;
 import cn.jiujiu.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,24 +43,24 @@ public class OrderController {
      * @author  liyz
      * @date    2019/12/05
      * @param   oper 前台传过来的编辑（添加/修改/删除）,
-     * @param   order 传过来的要编辑的对象,
+     * @param   orderDto 传过来的要编辑的对象,
      * @param   id 要编辑对象的id
      * @return  java.util.Map<java.lang.String,java.lang.Object>
      */
     @RequestMapping("edit")
-    public Map<String,Object> edit(String oper, Order order, String [] id){
+    public Map<String,Object> edit(String oper, OrderDto orderDto, String [] id){
 
         //声明map存放本方法的返回值
         Map<String, Object> map = new HashMap<>();
 
         //如果是添加操作
         if("add".equals(oper)){
-            System.out.println(order.toString());
-            orderService.insertOrder(order);
+            System.out.println(orderDto.toString());
+            orderService.insertOrder(orderDto);
             map.put("msg","订单添加成功");
         }
         if("edit".equals(oper)){
-            orderService.updateOrder(order);
+            orderService.updateOrder(orderDto);
             map.put("msg","订单修改成功");
         }
         if("del".equals(oper)){

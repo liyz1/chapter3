@@ -1,7 +1,11 @@
 package cn.jiujiu.service;
 
 import cn.jiujiu.DAO.OrderDAO;
+import cn.jiujiu.DAO.StaffDAO;
+import cn.jiujiu.DAO.UserDAO;
+import cn.jiujiu.DTO.OrderDto;
 import cn.jiujiu.entity.Order;
+import cn.jiujiu.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,6 +25,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderDAO orderDAO;
+
+    @Autowired
+    private UserDAO userDAO;
+
+    @Autowired
+    private StaffDAO staffDAO;
 
     /**
      * 功能描述 分页展示所有用户信息的service
@@ -44,7 +54,7 @@ public class OrderServiceImpl implements OrderService {
         //计算起始下标
         Integer start = (page-1)*rows;
         //拿到符合条件的结果集
-        List<Order> orders = null;
+        List<OrderDto> orders = null;
         if("true".equals(_search)){
             //当搜索框传过来的值为true时进行条件查询
             if("orderName".equals(searchField)){
@@ -74,16 +84,37 @@ public class OrderServiceImpl implements OrderService {
      * 功能描述 添加订单信息
      * @author  liyz
      * @date    2019/12/05
-     * @param   order
+     * @param   orderDto
      * @return  void
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
-    public void insertOrder(Order order) {
-
-        //为新添加的对象分配uuid并组装
+    public void insertOrder(OrderDto orderDto) {
+        Order order = new Order();
         String uuid = UUID.randomUUID().toString();
         order.setId(uuid);
+        order.setOrderName(orderDto.getOrderName());
+        order.setPaperType(orderDto.getPaperType());
+        order.setAmount(orderDto.getAmount());
+        order.setPrice(orderDto.getPrice());
+        order.setPrepareBeginDate(orderDto.getPrepareBeginDate());
+        order.setPrepareCompleteDate(orderDto.getPrepareCompleteDate());
+        order.setStatus(orderDto.getStatus());
+        order.setPackageMode(orderDto.getPackageMode());
+        order.setRemark(orderDto.getRemake());
+
+        //添加业务员id
+        String salesmanId = staffDAO.selectIdByName(orderDto.getSalesman());
+        order.setSalesmanId(salesmanId);
+        //添加设计师id
+        String designerId = staffDAO.selectIdByName(orderDto.getDesigner());
+        order.setDesignerId(designerId);
+        //添加业务助理id
+        String businessAssistantId = staffDAO.selectIdByName(orderDto.getBusinessAssistant());
+        order.setBusinessAssistantId(businessAssistantId);
+        //添加客户id
+        User user = userDAO.selectUserFromUser(orderDto.getCompany());
+        order.setUserId(user.getId());
 
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
@@ -93,14 +124,40 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 功能描述 根据id修改订单信息
+     * 功能描述 根据id修改订单信息。用户输入的是客户的公司名称，在这里转化为公司id插入表格
      * @author  liyz
      * @date    2019/12/05
-     * @param   order
+     * @param   orderDto
      * @return  void
      */
     @Override
-    public void updateOrder(Order order) {
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
+    public void updateOrder(OrderDto orderDto) {
+        Order order = new Order();
+        order.setId(orderDto.getId());
+        order.setOrderName(orderDto.getOrderName());
+        order.setPaperType(orderDto.getPaperType());
+        order.setAmount(orderDto.getAmount());
+        order.setCreateDate(orderDto.getCreateDate());
+        order.setPrice(orderDto.getPrice());
+        order.setPrepareBeginDate(orderDto.getPrepareBeginDate());
+        order.setPrepareCompleteDate(orderDto.getPrepareCompleteDate());
+        order.setStatus(orderDto.getStatus());
+        order.setPackageMode(orderDto.getPackageMode());
+        order.setRemark(orderDto.getRemake());
+        //添加业务员id
+        String salesmanId = staffDAO.selectIdByName(orderDto.getSalesman());
+        order.setSalesmanId(salesmanId);
+        //添加设计师id
+        String designerId = staffDAO.selectIdByName(orderDto.getDesigner());
+        order.setDesignerId(designerId);
+        //添加业务助理id
+        String businessAssistantId = staffDAO.selectIdByName(orderDto.getBusinessAssistant());
+        order.setBusinessAssistantId(businessAssistantId);
+        //添加客户id
+        User user = userDAO.selectUserFromUser(orderDto.getCompany());
+        order.setUserId(user.getId());
+
         orderDAO.updateOrder(order);
     }
 
@@ -112,6 +169,7 @@ public class OrderServiceImpl implements OrderService {
      * @return  void
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
     public void deleteOrderById(String id) {
         orderDAO.deleteOrderById(id);
     }

@@ -33,4 +33,21 @@
     <select id="likeStaffByStaffName" resultType="Staff" parameterType="java.lang.String">
         select * from staff where name like concat(concat('%',#{name}),'%')
     </select>
+
+    <!--查询所有业务员信息-->
+    <select id="selectAllSalesman" resultType="String">
+        select name from staff where position = '1'
+    </select>
+    <!--查询所有设计师信息-->
+    <select id="selectAllDesigner" resultType="String">
+        select name from staff where position = '2'
+    </select>
+    <!--查询所有业务助理信息信息-->
+    <select id="selectAllBusinessAssistant" resultType="String">
+        select name from staff where position = '3'
+    </select>
+    <!--根据名称查询id-->
+    <select id="selectIdByName" resultType="String">
+        select id from staff where name = #{name}
+    </select>
 </mapper>

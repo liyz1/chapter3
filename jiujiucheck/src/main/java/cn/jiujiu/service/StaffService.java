@@ -2,6 +2,7 @@ package cn.jiujiu.service;
 
 import cn.jiujiu.entity.Staff;
 
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -20,4 +21,10 @@ public interface StaffService {
     public void updateStaff(Staff staff);
     //根据id删除一个订单
     public void deleteStaffById(String id);
+    //查询所有业务员信息
+    public List<String> selectAllSalesman();
+    //查询所有设计师信息
+    public List<String> selectAllDesigner();
+    //查询所有业务助理信息
+    public List<String> selectAllBusinessAssistant();
 }

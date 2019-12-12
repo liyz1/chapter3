@@ -25,7 +25,7 @@ public class AdminServiceImpl implements AdminService{
      * 功能描述 管理员登录的service
      * @author  liyz
      * @date    2019/9/17
-     * @param   [username 用户名, password 密码]
+     * @param   username 用户名, password 密码
      * @return  java.util.Map<java.lang.String,java.lang.String>
      */
     @Override

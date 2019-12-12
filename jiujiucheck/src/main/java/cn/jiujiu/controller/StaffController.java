@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,7 +33,6 @@ public class StaffController {
     @RequestMapping("paging")
     public Map<String,Object> queryByPaging(Integer page, Integer rows, String _search,
                                             String searchField, String searchOper, String searchString){
-        System.out.println("controller");
         Map<String, Object> orders = staffService.queryByPaging(page, rows,_search,searchField,searchOper,searchString);
         return orders;
     }
@@ -71,4 +71,57 @@ public class StaffController {
         return map;
     }
 
+    /**
+     * 功能描述 查询所有业务员拼接成html在前端页面展示
+     * @author  liyz
+     * @date    2019/9/19
+     * @return  String
+     */
+    @RequestMapping("selectAllSalesmanFromStaff")
+    public String selectAllSalesmanFromStaff() {
+        List<String> list = staffService.selectAllSalesman();
+        StringBuilder builder = new StringBuilder();
+        builder.append("<select>");
+        for (int i = 0; i < list.size(); i++) {
+            builder.append("<option value='" + list.get(i) + "'>" + list.get(i) + "</option>");
+        }
+        builder.append("</select>");
+        return builder.toString();
+    }
+
+    /**
+     * 功能描述 查询所有客户的公司名称拼接成html在前端页面展示
+     * @author  liyz
+     * @date    2019/9/19
+     * @return  String
+     */
+    @RequestMapping("selectAllDesignerFromStaff")
+    public String selectAllDesignerFromStaff() {
+        List<String> list = staffService.selectAllDesigner();
+        StringBuilder builder = new StringBuilder();
+        builder.append("<select>");
+        for (int i = 0; i < list.size(); i++) {
+            builder.append("<option value='" + list.get(i) + "'>" + list.get(i) + "</option>");
+        }
+        builder.append("</select>");
+        return builder.toString();
+    }
+
+    /**
+     * 功能描述 查询所有客户的公司名称拼接成html在前端页面展示
+     * @author  liyz
+     * @date    2019/9/19
+     * @return  String
+     */
+    @RequestMapping("selectAllBusinessAssistantFromStaff")
+    public String selectAllBusinessAssistantFromStaff() {
+        List<String> list = staffService.selectAllBusinessAssistant();
+        StringBuilder builder = new StringBuilder();
+        builder.append("<select>");
+        for (int i = 0; i < list.size(); i++) {
+            builder.append("<option value='" + list.get(i) + "'>" + list.get(i) + "</option>");
+        }
+        builder.append("</select>");
+        return builder.toString();
+    }
 }

@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public interface UserService {
     //查询所有
-    public List<User> selectAllUserFromUser();
+    public List<String> selectAllCompanyFromUser();
     //分页查询
     public Map<String,Object> queryByPaging(Integer page,Integer rows,String _search,
                               String searchField, String searchOper, String searchString);

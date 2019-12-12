@@ -1,5 +1,6 @@
 package cn.jiujiu.DAO;
 
+import cn.jiujiu.DTO.OrderDto;
 import cn.jiujiu.entity.Order;
 import org.apache.ibatis.annotations.Param;
 
@@ -7,9 +8,9 @@ import java.util.List;
 
 public interface OrderDAO {
     //分页查询订单表
-    public List<Order> selectByPaging(@Param("start") Integer start, @Param("rows") Integer rows);
+    public List<OrderDto> selectByPaging(@Param("start") Integer start, @Param("rows") Integer rows);
     //根据订单名称模糊查询
-    public List<Order> likeOrderByOrderName(@Param("orderName")String orderName);
+    public List<OrderDto> likeOrderByOrderName(@Param("orderName")String orderName);
     //查询总条数
     public Integer selectRecords();
     //添加一个新订单

@@ -92,12 +92,12 @@ public class StaffServiceImpl implements StaffService {
      * 功能描述 根据id修改员工信息
      * @author  liyz
      * @date    2019/12/09
-     * @param   Staff
+     * @param   staff
      * @return  void
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
     public void updateStaff(Staff staff) {
-        System.out.println(staff);
         staffDAO.updateStaff(staff);
     }
 
@@ -109,7 +109,45 @@ public class StaffServiceImpl implements StaffService {
      * @return  void
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
     public void deleteStaffById(String id) {
         staffDAO.deleteStaffById(id);
+    }
+
+    /**
+     * 功能描述 查询所有的业务员
+     * @author  liyz
+     * @date    2019/12/12
+     * @return  list
+     */
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    public List<String> selectAllSalesman() {
+        List<String> list = staffDAO.selectAllSalesman();
+        return list;
+    }
+    /**
+     * 功能描述 查询所有的设计师
+     * @author  liyz
+     * @date    2019/12/12
+     * @return  list
+     */
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    public List<String> selectAllDesigner() {
+        List<String> list = staffDAO.selectAllDesigner();
+        return list;
+    }
+    /**
+     * 功能描述 查询所有的业务助理
+     * @author  liyz
+     * @date    2019/12/12
+     * @return  list
+     */
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    public List<String> selectAllBusinessAssistant() {
+        List<String> list = staffDAO.selectAllBusinessAssistant();
+        return list;
     }
 }

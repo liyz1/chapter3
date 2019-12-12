@@ -2,10 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.jiujiu.DAO.UserDAO">
 
-    <!--查询所有用户-->
-    <select id="selectAllUserFromUser" resultType="User">
-        select * from user
-    </select>
     <!--分页查询-->
     <select id="selectByPaging" resultType="User" parameterType="java.lang.Integer">
         select * from user limit #{start},#{rows}
@@ -43,5 +39,13 @@
     <!--根据客户名称模糊查询-->
     <select id="likeUserByNickname" resultType="User" parameterType="String">
         select * from user where nickname like concat(concat('%',#{nickname}),'%')
+    </select>
+    <!--查询所有客户的公司名称-->
+    <select id="selectAllCompanyFromUser" resultType="String">
+        select company from user
+    </select>
+    <!--根据公司名称查询客户信息-->
+    <select id="selectUserFromUser" resultType="User" parameterType="String">
+        select * from user where company = #{company}
     </select>
 </mapper>

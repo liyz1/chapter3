@@ -8,6 +8,7 @@ cn\jiujiu\controller\VerificationCodeController.class
 cn\jiujiu\service\OrderServiceImpl.class
 cn\jiujiu\controller\UserController.class
 cn\jiujiu\DAO\UserDAO.class
+cn\jiujiu\DTO\OrderDto.class
 cn\jiujiu\service\UserService.class
 cn\jiujiu\entity\Order.class
 cn\jiujiu\service\StaffService.class

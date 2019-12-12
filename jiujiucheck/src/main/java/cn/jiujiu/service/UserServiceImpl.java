@@ -23,19 +23,6 @@ public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
 
     /**
-     * 功能描述 展示所有用户信息的service
-     * @author  liyz
-     * @date    2019/9/19
-     * @return  java.util.List<cn.jiujiu.entity.User>
-     */
-    @Override
-    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
-    public List<User> selectAllUserFromUser() {
-        List<User> list = userDAO.selectAllUserFromUser();
-        return list;
-    }
-
-    /**
      * 功能描述 分页展示所有用户信息的service
      * jqGrid自带搜索哦操作符：“eq”等于, “ne”不等于, “bw”开始于, “bn”不开始于 ,“ew”结束于,
      * “en”不结束于, “cn”包含, “nc”不包含, “nu”不存在, “nn”存在, “in”属于, “ni”不属于,暂
@@ -103,7 +90,7 @@ public class UserServiceImpl implements UserService {
         user.setId(uuid);
         String salt = UUID.randomUUID().toString();
         user.setSalt(salt);
-        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date = new Date();
         String registerDate = simpleDateFormat.format(date);
         user.setRegisterTime(registerDate);
@@ -119,6 +106,7 @@ public class UserServiceImpl implements UserService {
      * @return  void
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
     public void updateUser(User user) {
         userDAO.updateUser(user);
     }
@@ -131,7 +119,22 @@ public class UserServiceImpl implements UserService {
      * @return  void
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED,readOnly = false)
     public void deleteUserById(String id) {
         userDAO.deleteUserById(id);
+    }
+
+
+    /**
+     * 功能描述 展示所有客户的名称信息
+     * @author  liyz
+     * @date    2019/9/19
+     * @return  java.util.List<cn.jiujiu.entity.User>
+     */
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    public List<String> selectAllCompanyFromUser() {
+        List<String> list = userDAO.selectAllCompanyFromUser();
+        return list;
     }
 }

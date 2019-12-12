@@ -10,10 +10,10 @@
             datatype:"json",
             //列的标题，也就是表格的字段名
             colNames:["id","产品名称","纸张类型","产品数量","订单创建时间","单价(元)","预计开工时间",
-                "预计完工时间","订单状态","打包方式","业务员","所属用户id","备注"],
+                "预计完工时间","订单状态","打包方式","业务员","设计师","业务助理","所属客户","备注"],
             //列的模型,和数据库字段严格对应
             colModel:[
-                {name:"id",search:false,align:"center"},
+                {name:"id",search:false,align:"center",hidden:true},
                 {name:"orderName",editable: true,align:"center"},
                 {name:"paperType",editable: true,search:false,width:140,align:"center"},
                 {name:"amount",editable: true,search:false,width:100,align:"center"},
@@ -38,12 +38,33 @@
                 },
 
                 {name:"status",editable: true,search:false,align:"center",edittype:'select',
+                    formatter:function(value,options,rowData){
+                        if(value == '1'){return '设计';}
+                        if(value == '2'){return '印刷';}
+                        if(value == '3'){return '覆膜';}
+                        if(value == '4'){return '烫金';}
+                        if(value == '5'){return '过油';}
+                        if(value == '6'){return '压纹';}
+                        if(value == '7'){return '模切';}
+                        if(value == '8'){return '粘盒';}
+                        if(value == '9'){return '打包';}
+                        if(value == '10'){return '发货';}
+                        if(value == '11'){return '完成';}
+                    },
                       editoptions: {value:{1:'设计',2:'印刷',3:'覆膜',4:'烫金',5:'过油',6:'压纹',
-                      7:'模切',8:'粘盒',9:'打包',10:'发货',11:'完成'}}},
+                      7:'模切',8:'粘盒',9:'打包',10:'发货',11:'完成'}}
+                },
                 {name:"packageMode",editable: true,search:false,edittype:'select',
-                      editoptions: {value:{1:'装箱',2:'装袋'}},align:"center"},
-                {name:"salesman",editable: true,search:false,align:"center"},
-                {name:"userId",editable: true,search:false,align:"center"},
+                      formatter:function(value,options,rowData){
+                        if(value == '1'){return '装箱';}
+                        if(value == '2'){return '装袋';}
+                      },
+                      editoptions: {value:{1:'装箱',2:'装袋'}},align:"center"
+                },
+                {name:"salesman",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllSalesmanFromStaff"}},
+                {name:"designer",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllDesignerFromStaff"}},
+                {name:"businessAssistant",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/StaffController/selectAllBusinessAssistantFromStaff"}},
+                {name:"company",editable: true,search:false,edittype:'select',editoptions:{dataUrl:"${pageContext.request.contextPath}/userController/selectCompanyFromUser"}},
                 {name:"remake",editable: true,search:false,fixed: true,align:"center"}
             ],
             styleUI:"Bootstrap",    //采用Bootstrap风格
