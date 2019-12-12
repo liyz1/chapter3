@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jiujiu.DAO.OrderDAO">
+
+    <!--分页查询-->
+    <select id="selectByPaging" resultType="OrderDto" parameterType="java.lang.Integer">
+        select o.id as id,
+                o.orderName as orderName,
+                o.paperType as paperType,
+                o.amount as amount,
+                o.createDate as createDate,
+                o.price as price,
+                o.prepareBeginDate as prepareBeginDate,
+                o.prepareCompleteDate as prepareCompleteDate,
+                o.effectPicture as effectPicture,
+                o.packageMode as packageMode,
+                o.status status,
+                o.remake as remake,
+                f1.name as salesman,
+                f2.name as designer,
+                f3.name as businessAssistant,
+                u.company as company
+            from orders as o
+                left join staff as f1 on o.salesmanId = f1.id
+                left join staff as f2 on o.designerId = f2.id
+                left join staff as f3 on o.businessAssistantId = f3.id
+                left join user as u on o.userId = u.id
+            limit #{start},#{rows}
+    </select>
+    <!--查询总记录数-->
+    <select id="selectRecords" resultType="java.lang.Integer">
+        select count(1) from orders
+    </select>
+    <!--添加一个新订单-->
+    <insert id="insertOrder">
+        insert into orders
+                    values(#{id},#{orderName},#{paperType},#{amount},#{createDate},
+                           #{price},#{prepareBeginDate},#{prepareCompleteDate},#{effectPicture},
+                           #{status},#{packageMode},#{salesmanId},#{designerId},
+                           #{businessAssistantId},#{userId},#{remark})
+    </insert>
+    <!--根据uuid修改订单-->
+    <update id="updateOrder" parameterType="Order">
+        update orders set orderName = #{orderName},
+                         paperType = #{paperType},
+                         amount = #{amount},
+                         price = #{price},
+                         remake = #{remark},
+                         userId = #{userId},
+                         status = #{status},
+                         packageMode = #{packageMode},
+                         prepareBeginDate=#{prepareBeginDate},
+                         prepareCompleteDate=#{prepareCompleteDate},
+                         salesmanId = #{salesmanId},
+                         designerId = #{designerId},
+                         businessAssistantId = #{businessAssistantId},
+                         userId = #{userId}
+                  where id = #{id}
+    </update>
+    <!--根据id删除一个订单-->
+    <delete id="deleteOrderById">
+        delete from orders where id = #{id}
+    </delete>
+    <!--根据订单名称模糊查询-->
+    <select id="likeOrderByOrderName" resultType="Order" parameterType="java.lang.String">
+        select * from orders where orderName like concat(concat('%',#{orderName}),'%')
+    </select>
+</mapper>
