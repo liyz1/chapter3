@@ -12,14 +12,26 @@
             colNames:["id","姓名","电话","用户名","密码","盐值","状态","职位类型","备注"],
             //列的模型,和数据库字段严格对应
             colModel:[
-                {name:"id",search:false,align:"center"},
+                {name:"id",search:false,align:"center",hidden:true},
                 {name:"name",editable: true,align:"center"},
                 {name:"phone",editable: true,search:false,width:140,align:"center"},
                 {name:"username",editable: true,search:false,width:100,align:"center"},
-                {name:"password",editable: true,search:false,width:200,align:"center"},
-                {name:"salt",search:false,editable: false,width:100,align:"center"},
-                {name:"status",editable: true,search:false,align:"center",edittype:'select',editoptions: {value:{1:'激活',2:'冻结'}},},
-                {name:"position",editable: true,search:false,edittype:'select',editoptions: {value:{1:'业务员',2:'设计师',3:'业务助理',4:'其它'}},align:"center"},
+                {name:"password",editable: true,search:false,width:200,align:"center",hidden:true},
+                {name:"salt",search:false,editable: false,width:100,align:"center",hidden:true},
+                {name:"status",editable: true,search:false,align:"center",edittype:'select',
+                    formatter:function(value,options,rowData){
+                        if(value == '1'){return '激活';}
+                        if(value == '2'){return '冻结';}
+                    },
+                    editoptions: {value:{1:'激活',2:'冻结'}},},
+                {name:"position",editable: true,search:false,edittype:'select',
+                    formatter:function(value,options,rowData){
+                        if(value == '1'){return '业务员';}
+                        if(value == '2'){return '设计师';}
+                        if(value == '3'){return '业务助理';}
+                        if(value == '4'){return '其它';}
+                    },
+                    editoptions: {value:{1:'业务员',2:'设计师',3:'业务助理',4:'其它'}},align:"center"},
                 {name:"remake",editable: true,search:false,fixed: true,align:"center"}
             ],
             styleUI:"Bootstrap",    //采用Bootstrap风格
