@@ -19,4 +19,6 @@ public interface OrderDAO {
     public void updateOrder(Order order);
     //根据id删除一个订单
     public void deleteOrderById(String id);
+    //查询当前未完成的所有订单（导出报表）
+    public List<OrderDto> selectAllUnFinishedFromOrder();
 }

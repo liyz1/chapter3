@@ -173,4 +173,16 @@ public class OrderServiceImpl implements OrderService {
     public void deleteOrderById(String id) {
         orderDAO.deleteOrderById(id);
     }
+
+    /**
+     * 功能描述 查询当前未完成的所有订单（导出报表）
+     * @author  liyz
+     * @date    2019/12/13
+     * @return  List<OrderDto>
+     */
+    @Override
+    public List<OrderDto> selectAllUnFinishedFromOrder() {
+        List<OrderDto> list = orderDAO.selectAllUnFinishedFromOrder();
+        return list;
+    }
 }

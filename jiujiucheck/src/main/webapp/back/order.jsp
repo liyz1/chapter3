@@ -95,7 +95,8 @@
         );
     })
     function showModal() {
-        location.href="${pageContext.request.contextPath}/user/print"
+        location.href="${pageContext.request.contextPath}/OrderController/orderPrint";
+        alert("导出在D盘根目录下！");
     }
 </script>
 <h3>订单管理</h3>
