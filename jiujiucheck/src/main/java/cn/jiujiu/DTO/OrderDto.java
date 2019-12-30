@@ -32,7 +32,7 @@ public class OrderDto implements Serializable {
     private BigDecimal price;               //订单单个产品金额
     @Excel(name = "预计开工时间")
     private String prepareBeginDate;    //预计开工时间
-    @Excel(name = "计完工时间")
+    @Excel(name = "预计完工时间")
     private String prepareCompleteDate;   //预计完工时间
     @ExcelIgnore
     private String effectPicture;       //效果图
@@ -49,5 +49,5 @@ public class OrderDto implements Serializable {
     @Excel(name = "客户名称")
     private String company;             //所属客户的公司名称
     @Excel(name = "备注")
-    private String remake;              //备注
+    private String remark;              //备注
 }

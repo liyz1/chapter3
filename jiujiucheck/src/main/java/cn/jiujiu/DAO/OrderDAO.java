@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface OrderDAO {
+
+    /*************后台接口**************/
     //分页查询订单表
     public List<OrderDto> selectByPaging(@Param("start") Integer start, @Param("rows") Integer rows);
     //根据订单名称模糊查询
@@ -21,4 +23,8 @@ public interface OrderDAO {
     public void deleteOrderById(String id);
     //查询当前未完成的所有订单（导出报表）
     public List<OrderDto> selectAllUnFinishedFromOrder();
+
+    /*************前台接口**************/
+    //根据userId查询订单
+    public List<OrderDto> selectUnFinishedOrderByUserId(String userId);
 }

@@ -48,4 +48,14 @@
     <select id="selectUserFromUser" resultType="User" parameterType="String">
         select * from user where company = #{company}
     </select>
+
+    <!-- 根据账号查询 -->
+    <select id="selectUserByUsername" parameterType="String" resultType="Integer">
+        select count(1) from user where username=#{username}
+    </select>
+
+    <!-- 根据账号密码查询 -->
+    <select id="selectUserByUsernameAndPassword" parameterType="String" resultType="User">
+        select  * from user where username=#{username} and password=#{password}
+    </select>
 </mapper>

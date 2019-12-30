@@ -1,6 +1,7 @@
 package cn.jiujiu.service;
 
 import cn.jiujiu.DAO.UserDAO;
+import cn.jiujiu.entity.Admin;
 import cn.jiujiu.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -136,5 +137,27 @@ public class UserServiceImpl implements UserService {
     public List<String> selectAllCompanyFromUser() {
         List<String> list = userDAO.selectAllCompanyFromUser();
         return list;
+    }
+    /**
+     * 功能描述 用户登录的service
+     * @author  liyz
+     * @date    2019/9/17
+     * @param   username 用户名, password 密码
+     * @return  java.util.Map<java.lang.String,java.lang.String>
+     */
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    public User userLogin(String username, String password) {
+
+        //查询是否有这个账号
+        Integer count = userDAO.selectUserByUsername(username);
+
+        //如果账号存在，查询是否有这个用户
+        if(count==1) {
+            User user = userDAO.selectUserByUsernameAndPassword(username, password);
+            return user;
+        }else{
+            return null;
+        }
     }
 }

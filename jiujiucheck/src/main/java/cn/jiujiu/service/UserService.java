@@ -12,6 +12,7 @@ import java.util.Map;
  * @date    2019/9/11
  */
 public interface UserService {
+    /*************后台接口**************/
     //查询所有
     public List<String> selectAllCompanyFromUser();
     //分页查询
@@ -23,4 +24,7 @@ public interface UserService {
     public void updateUser(User user);
     //根据id删除一个用户
     public void deleteUserById(String id);
+
+    /*************前台接口**************/
+    public User userLogin(String username, String password);
 }

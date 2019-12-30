@@ -14,6 +14,7 @@ import java.util.Map;
  * @date    2019/12/05
  */
 public interface OrderService {
+    /*************后台接口**************/
     //分页查询
     public Map<String,Object> queryByPaging(Integer page, Integer rows, String _search,
                                             String searchField, String searchOper, String searchString);
@@ -25,4 +26,7 @@ public interface OrderService {
     public void deleteOrderById(String id);
     //查询当前未完成的所有订单（导出报表）
     public List<OrderDto> selectAllUnFinishedFromOrder();
+    /*************前台接口**************/
+    //根据userId查询订单
+    public List<OrderDto> selectUnFinishedOrderByUserId(String userId);
 }

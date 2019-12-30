@@ -101,7 +101,7 @@ public class OrderServiceImpl implements OrderService {
         order.setPrepareCompleteDate(orderDto.getPrepareCompleteDate());
         order.setStatus(orderDto.getStatus());
         order.setPackageMode(orderDto.getPackageMode());
-        order.setRemark(orderDto.getRemake());
+        order.setRemark(orderDto.getRemark());
 
         //添加业务员id
         String salesmanId = staffDAO.selectIdByName(orderDto.getSalesman());
@@ -144,7 +144,7 @@ public class OrderServiceImpl implements OrderService {
         order.setPrepareCompleteDate(orderDto.getPrepareCompleteDate());
         order.setStatus(orderDto.getStatus());
         order.setPackageMode(orderDto.getPackageMode());
-        order.setRemark(orderDto.getRemake());
+        order.setRemark(orderDto.getRemark());
         //添加业务员id
         String salesmanId = staffDAO.selectIdByName(orderDto.getSalesman());
         order.setSalesmanId(salesmanId);
@@ -181,8 +181,41 @@ public class OrderServiceImpl implements OrderService {
      * @return  List<OrderDto>
      */
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
     public List<OrderDto> selectAllUnFinishedFromOrder() {
         List<OrderDto> list = orderDAO.selectAllUnFinishedFromOrder();
+        for (OrderDto orderDto:list){
+            if("1".equals(orderDto.getStatus())){orderDto.setStatus("设计");}
+            if("2".equals(orderDto.getStatus())){orderDto.setStatus("印刷");}
+            if("3".equals(orderDto.getStatus())){orderDto.setStatus("覆膜");}
+            if("4".equals(orderDto.getStatus())){orderDto.setStatus("烫金");}
+            if("5".equals(orderDto.getStatus())){orderDto.setStatus("过油");}
+            if("6".equals(orderDto.getStatus())){orderDto.setStatus("压纹");}
+            if("7".equals(orderDto.getStatus())){orderDto.setStatus("模切");}
+            if("8".equals(orderDto.getStatus())){orderDto.setStatus("粘盒");}
+            if("9".equals(orderDto.getStatus())){orderDto.setStatus("打包");}
+            if("10".equals(orderDto.getStatus())){orderDto.setStatus("发货");}
+
+            if("1".equals(orderDto.getPackageMode())){orderDto.setPackageMode("装箱");}
+            if("2".equals(orderDto.getPackageMode())){orderDto.setPackageMode("装袋");}
+        }
+        return list;
+    }
+
+    /**
+     * 功能描述 前台用户查询自己的订单信息
+     * @author  liyz
+     * @date    2019/12/27
+     * @return  List<OrderDto>
+     */
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    public List<OrderDto> selectUnFinishedOrderByUserId(String userId) {
+        List<OrderDto> list = orderDAO.selectUnFinishedOrderByUserId(userId);
+        for (OrderDto orderDto:list){
+            if("1".equals(orderDto.getPackageMode())){orderDto.setPackageMode("装箱");}
+            if("2".equals(orderDto.getPackageMode())){orderDto.setPackageMode("装袋");}
+        }
         return list;
     }
 }

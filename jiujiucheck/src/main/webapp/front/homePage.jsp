@@ -4,14 +4,15 @@
 <!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en-gb" class="no-js">
+<%@ page pageEncoding="UTF-8" isELIgnored="false"%>
 <!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!--[if lt IE 9]> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
-<title>大千世界</title>
+<title>郑州久久包装材料有限公司</title>
 <meta name="description" content="">
 <meta name="author" content="WebThemez">
 <!--[if lt IE 9]>
@@ -64,34 +65,31 @@
 <!--主页的section-->
 <section id="home">
   <div class="banner-container"> <img src="../images/banner-bg.jpg" alt="banner" />
+
     <div class="container banner-content">
       <div class="hero-text animated fadeInDownBig">
-        <h1 class="responsive-headline" style="font-size: 40px;">Belief in recovery always</h1>
-        <a href="#basics" class="arrow-link"> <i class="fa fa-arrow-circle-down fa-2x"></i> </a> 
-        <p>Awesome theme for your Business or Corporate site to showcase your product and service.</p>
-
         <!--登录表单-->
-		<form class="form-horizontal">
+        <form role="form" class="form-horizontal" action="" method="post" id="loginForm">
           <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-              </div>
+            <label for="username" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="username" id="username">
+            </div>
           </div>
           <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-              </div>
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="password" id="password">
+            </div>
           </div>
-  
+
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-12">
-              <button type="submit" class="btn btn-default">Sign in</button>
-              <button type="submit" class="btn btn-default">Register</button>
+              <button type="button" class="btn btn-dark" id = "loginButtonId">登录</button>
             </div>
           </div>
         </form>
+
       </div>
     </div>
   </div>
@@ -353,5 +351,30 @@
 <script src="../js/waypoints.js"></script>
 <script src="../js/custom.js" type="text/javascript"></script>
 <script src="../js/owl-carousel/owl.carousel.js"></script>
+<script>
+  $(function () {
+
+      /*表单验证的js*/
+      $("#loginButtonId").click(function () {
+          $.ajax({
+              url: "${pageContext.request.contextPath}/userController/userLogin",
+              data: $("#loginForm").serialize(),
+              type: "post",
+              datatype: "json",
+              success: function (data) {
+                  console.log(data)
+                  if(data.msg=="ok"){
+                      location.href = "${pageContext.request.contextPath}/front/orderProcess.jsp"
+                  }
+                  if(data.msg=="账号密码错误"){
+                      alert("账号密码错误");
+                  }
+              }
+          })
+
+
+      })
+  })
+</script>
 </body>
 </html>

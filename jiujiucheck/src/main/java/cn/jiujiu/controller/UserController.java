@@ -2,10 +2,13 @@ package cn.jiujiu.controller;
 
 import cn.jiujiu.entity.User;
 import cn.jiujiu.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 /**
@@ -14,9 +17,11 @@ import java.util.*;
  * @作者 liyz
  */
 @RestController
-@RequestMapping("/userController")
+@RequestMapping("userController")
 public class UserController {
 
+
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserService userService;
 
@@ -84,5 +89,28 @@ public class UserController {
         }
         builder.append("</select>");
         return builder.toString();
+    }
+
+    /**
+     * 功能描述  用户登录的controller
+     * @author  liyz
+     * @date    2019/12/27
+     * @param   username 用户名, password 密码
+     * @return  java.util.Map<java.lang.String,java.lang.String>
+     */
+    @RequestMapping("userLogin")
+    public Map<String,String> userLogin(String username, String password, HttpSession session){
+
+        //定义空map作为本方法的返回值，存放管理员登录返回的结果信息
+        Map<String, String> map = new HashMap<>();
+        User user = userService.userLogin(username, password);
+        if(user==null){
+            map.put("msg","账号密码错误");
+        }else{
+            session.setAttribute("id",user.getId());
+            logger.debug("用户id为"+user.getId()+"的用户登录成功");
+            map.put("msg","ok");
+        }
+        return map;
     }
 }

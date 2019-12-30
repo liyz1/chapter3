@@ -23,12 +23,19 @@
     <script src="../css/bootstrap.min.css"></script>
     <script src="assets/js/jquery.backstretch.min.js"></script>
 
+    <script src="../back/assets/js/jquery-2.2.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="../boot/js/jquery.validate.min.js"></script>
+    <script src="../boot/js/jquery.validate.min.js"></script>
     <!--表单验证的js插件-->
     <script src="../boot/js/jquery.validate.min.js"></script>
 
-    <!--背景图片的脚本-->
+
     <script>
 
+        <!--背景图片的脚本 -->
         jQuery(document).ready(function () {
 
             /*

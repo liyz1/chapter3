@@ -70,7 +70,7 @@
     <!--导航选项卡-->
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">员工列表</a></li>
-        <li><a href="javascript:void(0)" onclick="showModal()"><b>生成报表</b></a></li>
+
     </ul>
 </div>
 <table id="staffList"></table>
