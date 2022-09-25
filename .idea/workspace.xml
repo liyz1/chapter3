@@ -498,11 +498,11 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <option name="MAIN_CLASS_NAME" value="org.main.Main" />
       <module name="Test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
